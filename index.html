@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <!--Import css file-->
+    <link rel="stylesheet" href="style.css">
+    
+    <!--Implement JS-->
+    <script>
+        function appendOperation(operation) {
+            document.getElementById('resultArea').innerHTML +=operation;
+        }
+    </script>
+
+</head>
+
+<body>
+    <div id="resultArea">
+        12
+    </div>
+
+    <table>
+        <tr>
+            <td onclick="appendOperation(7)">7</td>
+            <td>8</td>
+            <td>9</td>
+            <td class="operators">/</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td class="operators">x</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td class="operators">+</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td class="operators">,</td>
+            <td id="equalsign">=</td>
+            <td class="operators">-</td>
+        </tr>
+    </table>
+</body>
+</html>
