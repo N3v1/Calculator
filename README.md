@@ -6,5 +6,6 @@ Welcome to the documentation for the Calculator Repository! This website provide
 2. **Open the cloned repo** with Visual Studio Code. Make sure that you have the **Live Server (Five Server)** extension from Yannick installed.
 3. **Run the Code with Five Server**
 
-## The structure of the user interface
-<img height=300px src="Interface.png">
+## Overview of the user interface
+### The design
+<img height=400px src="Interface.png">
