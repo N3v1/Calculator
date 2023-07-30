@@ -21,5 +21,5 @@ The calculator provided offers a comprehensive range of basic and practical func
 
 <img align="right"  width="100" src="https://media.giphy.com/media/11kEuHSQAXXiGQ/giphy.gif"></a>
 
-## Known Errors/BUGs
+## Known Errors/BUGs 🪲
 - The subtraction doesn't work, or only sometimes
