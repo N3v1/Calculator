@@ -1,7 +1,8 @@
 # Calculator
-<div id="header" align="center">
-    <img src="https://media.giphy.com/media/M9gbBd9nbDrOTu1Mqx/giphy.gif" width="100"/>
-</div>
+<!--<div id="header" align="center">
+    <img src="https://media.giphy.com/media/M9gbBd9nbDrOTu1Mqx/giphy.gif" width="100"/> 
+</div>-->
+<img align="right"  width="100" src="https://media.giphy.com/media/M9gbBd9nbDrOTu1Mqx/giphy.gif"></a>
 Welcome to the documentation for the Calculator Repository! This website provides a user-friendly calculator that allows users to perform basic arithmetic operations. The calculator is built using HTML, CSS, and JavaScript, making it easy to use and accessible to anyone with a modern web browser. 
 
 ## How to use this calculator
@@ -17,6 +18,8 @@ The design of this calculator is both contemporary and sophisticated, rendering 
 
 ### Simple but useful functions
 The calculator provided offers a comprehensive range of basic and practical functions, enabling users to perform **essential arithmetic operations**, including **addition**, **subtraction**, **multiplication**, and **division**. Additionally, the calculator features advanced capabilities, such as **percentage calculations** and **brackets for more complex equations**. Furthermore, I’m continuously working towards incorporating **new features** to enhance the calculator's functionality.
+
+<img align="right"  width="100" src="https://media.giphy.com/media/11kEuHSQAXXiGQ/giphy.gif"></a>
 
 ## Known Errors/BUGs
 - The subtraction doesn't work, or only sometimes
