@@ -1,4 +1,7 @@
 # Calculator
+<div id="header" align="center">
+    <img src="https://media.giphy.com/media/M9gbBd9nbDrOTu1Mqx/giphy.gif" width="100"/>
+</div>
 Welcome to the documentation for the Calculator Repository! This website provides a user-friendly calculator that allows users to perform basic arithmetic operations. The calculator is built using HTML, CSS, and JavaScript, making it easy to use and accessible to anyone with a modern web browser. 
 
 ## How to use this calculator
