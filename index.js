@@ -1,3 +1,9 @@
+/*
+--------------------------------------------------------------------------------------
+Calculator in HTML,CSS and JS - (c) 2023 NH (N3v1) - Use at your own risk, no warranty
+--------------------------------------------------------------------------------------
+*/
+
 function appendOperation(operation) {
     document.getElementById('resultArea').innerHTML +=operation;
 }
