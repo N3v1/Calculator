@@ -42,7 +42,7 @@
             <td onclick="appendOperation(4)">4</td>
             <td onclick="appendOperation(5)">5</td>
             <td onclick="appendOperation(6)">6</td>
-            <td onclick="appendOperation(' x ')" class="operators">x</td>
+            <td onclick="appendOperation(' * ')" class="operators">x</td>
         </tr>
         <tr>
             <td onclick="appendOperation(1)">1</td>
@@ -51,10 +51,10 @@
             <td onclick="appendOperation(' + ')" class="operators">+</td>
         </tr>
         <tr>
-            <td>0</td>
-            <td class="operators">,</td>
-            <td id="equalsign">=</td>
-            <td class="operators">-</td>
+            <td onclick="appendOperation(0)">0</td>
+            <td onclick="'.'" class="operators">,</td>
+            <td onclick="calcResult()" id="equalsign">=</td>
+            <td onclick="' - '" class="operators">-</td>
         </tr>
     </table>
 </body>
