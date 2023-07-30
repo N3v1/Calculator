@@ -16,4 +16,7 @@ Welcome to the documentation for the Calculator Repository! This website provide
 The design of this calculator is both contemporary and sophisticated, rendering it a visually appealing addition to any professional setting. Furthermore, it is equipped with a comprehensive range of essential features that are fundamental to conducting efficient calculations. With this calculator, one can trust that all necessary tools are available to complete tasks with accuracy and expediency.
 
 ### Simple but useful functions
-The calculator provided offers a comprehensive range of basic and practical functions, enabling users to perform essential arithmetic operations, including addition, subtraction, multiplication, and division. Additionally, the calculator features advanced capabilities, such as percentage calculations and brackets for more complex equations. Furthermore, I’m continuously working towards incorporating new features to enhance the calculator's functionality.
+The calculator provided offers a comprehensive range of basic and practical functions, enabling users to perform **essential arithmetic operations**, including **addition**, **subtraction**, **multiplication**, and **division**. Additionally, the calculator features advanced capabilities, such as **percentage calculations** and **brackets for more complex equations**. Furthermore, I’m continuously working towards incorporating **new features** to enhance the calculator's functionality.
+
+## Known Errors/BUGs
+- The subtraction doesn't work, or only sometimes
