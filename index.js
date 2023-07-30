@@ -8,3 +8,8 @@ function calculateResult() {
 
     container.innerHTML = result;
 }
+
+function deleteLast() {
+    let container = document.getElementById('resultArea');
+    container.innerHTML = container.innerHTML.slice(0, -1);
+}
