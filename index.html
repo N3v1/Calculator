@@ -27,9 +27,9 @@
 
     <table>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td onclick="appendOperation('(')">(</td>
+            <td onclick="appendOperation(')')">)</td>
+            <td onclick="appendOperation(' % ')">%</td>
             <td onclick="deleteLast()" class="operators">DEL</td>
         </tr>
         <tr>
@@ -52,7 +52,7 @@
         </tr>
         <tr>
             <td onclick="appendOperation(0)">0</td>
-            <td onclick="'.'" class="operators">,</td>
+            <td onclick="'.'" class="operators">.</td>
             <td onclick="calculateResult()" id="equalsign">=</td>
             <td onclick="' - '" class="operators">-</td>
         </tr>
