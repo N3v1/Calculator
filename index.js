@@ -11,5 +11,9 @@ function calculateResult() {
 
 function deleteLast() {
     let container = document.getElementById('resultArea');
-    container.innerHTML = container.innerHTML.slice(0, -1);
+    if(container.innerHTML.endsWith(' ')) {
+        container.innerHTML = container.innerHTML.slice(0, -3);
+    } else {
+        container.innerHTML = container.innerHTML.slice(0, -1);
+    }
 }
