@@ -22,4 +22,10 @@ The calculator provided offers a comprehensive range of basic and practical func
 <img align="right"  width="100" src="https://media.giphy.com/media/11kEuHSQAXXiGQ/giphy.gif"></a>
 
 ## Known Errors/BUGs 🪲
-none
+* none
+
+
+
+## Other
+### Note of Thanks 🙏
+* Many thanks to **Phil94comp** for helping me fix bug **#1**. You can find a link to his profile [**here**](https://github.com/Phil94comp).
