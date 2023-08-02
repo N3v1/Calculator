@@ -60,7 +60,10 @@ Calculator in HTML,CSS and JS - (c) 2023 NH (N3v1) - Use at your own risk, no wa
             <td onclick="appendOperation(0)">0</td>
             <td onclick="'.'" class="operators">.</td>
             <td onclick="calculateResult()" id="equalsign">=</td>
-            <td onclick="' - '" class="operators">-</td>
+            
+            <!--The minus operation didn't have the appendOperation function in the onclick event. 
+                After adding the appendOperation the subtraction is functioning properly. Phillip Andrews-->
+            <td onclick="appendOperation(' - ')" class="operators">-</td>
         </tr>
     </table>
 </body>
