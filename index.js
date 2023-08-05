@@ -13,31 +13,42 @@ function calculateResult() {
     //  With a constant you can only set the object once so you can still mutate the object @jiri132
     const container = document.getElementById('resultArea');
 
-    // Get the full calculation
+    // Get the full calculation and split it into parts
     const calculation = container.innerHTML;
     const splitUpCalculation = calculation.split(" ");
+    let newCalculation = [];
 
-    if (splitUpCalculation.includes("%")) {
-        // Get the index and the number that is tied to the % value
-        const index = splitUpCalculation.indexOf("%");
-        const number = splitUpCalculation[index - 1];
+    // `part` represents the part of the calculation 
+    //    example: `[100 * 55% + 9 * 10%] => p1 = 100, p2 = *, p3 = 55, p4 = %, p[n]......`
+    // This function can also be used to find `sin(,cos(,tan(,root, exp, pi, ......`
+    splitUpCalculation.forEach((part,index) => {
+        // Is the part an %?
+        if (part === '%') {
+            // Get the number associated with %
+            const number = splitUpCalculation[index -1];
+            // the latest item of `newCalculation array`
+            const nC_index = newCalculation.length - 1; 
 
-        // Remove the % index
-        splitUpCalculation.splice(index, 1);
+            // instead of the normal number place the decimal value there
+            newCalculation[nC_index] = percentageToDecimal(number);
 
-        // The past number of example `7% -> 7 -> 0,07`
-        splitUpCalculation[index - 1] = percentageToDecimal(number)
-    }
+            // Return it so that it doesn't add the % back into it
+            return;
+        }
+
+        // If it is not a % just push the part that is in it
+        newCalculation.push(part);
+    })
 
     // Find the result using the new calculation method
-    let result = eval(splitUpCalculation.join(" "));
+    let result = eval(newCalculation.join(" "));
 
     // set the calculation result
     container.innerHTML = result;
 }
 
 
-/// This gets the number input and makes it to decimal using the function `%value / 100 = decimal value` 
+/// This gets the number input and makes it to decimal using the function `%value / 100 = decimal value` @jiri132
 function percentageToDecimal(percentage) {
     return percentage / 100;
 }
