@@ -7,14 +7,14 @@ Welcome to the documentation for the Calculator Repository! This website provide
 
 ## Table of Content
 <!-- Table of Content start -->
-1. [How to use this calculator]()
-2. [Overview of the user interface]()
-    - [Simple but useful functions]()
+1. [How to use this calculator](https://github.com/N3v1/Calculator#how-to-use-this-calculator)
+2. [Overview of the user interface](https://github.com/N3v1/Calculator#overview-of-the-user-interface)
+    - [Simple but useful functions](https://github.com/N3v1/Calculator#simple-but-useful-functions)
 3. [Known Errors/BUGs]()
-4. [Other]()
-    - [Contributing]()
-    - [License]()
-    - [Note of Thanks]()
+4. [Other](https://github.com/N3v1/Calculator#other)
+    - [Contributing](https://github.com/N3v1/Calculator#contributing)
+    - [License](https://github.com/N3v1/Calculator#license)
+    - [Note of Thanks](https://github.com/N3v1/Calculator#note-of-thanks)
 <!-- Tabel of Content end -->
 
 ## How to use this calculator
