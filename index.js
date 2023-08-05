@@ -1,6 +1,6 @@
 /*
 --------------------------------------------------------------------------------------
-Calculator in HTML,CSS and JS - (c) 2023 NH (N3v1) - Use at your own risk, no warranty
+Calculator in HTML, CSS and JS - (c) 2023 NH (N3v1) - Use at your own risk, no warranty
 --------------------------------------------------------------------------------------
 */
 
@@ -40,7 +40,7 @@ function calculateResult() {
 
         // If it is not a % just push the part that is in it
         newCalculation.push(part);
-    });
+    })
 
     // Find the result using the new calculation method
     let result = eval(newCalculation.join(" "));
