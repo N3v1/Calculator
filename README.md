@@ -3,7 +3,19 @@
     <img src="https://media.giphy.com/media/M9gbBd9nbDrOTu1Mqx/giphy.gif" width="100"/> 
 </div>-->
 <img align="right"  width="100" src="https://media.giphy.com/media/M9gbBd9nbDrOTu1Mqx/giphy.gif"></a>
-Welcome to the documentation for the Calculator Repository! This website provides a user-friendly calculator that allows users to perform basic arithmetic operations. The calculator is built using HTML, CSS, and JavaScript, making it easy to use and accessible to anyone with a modern web browser. 
+Welcome to the documentation for the Calculator Repository! This website provides a user-friendly calculator that allows users to perform basic arithmetic operations. The calculator is built using HTML, CSS, and JavaScript, making it easy to use and accessible to anyone with a modern web browser.
+
+## Table of Content
+<!-- Table of Content start -->
+1. [How to use this calculator]()
+2. [Overview of the user interface]()
+    - [Simple but useful functions]()
+3. [Known Errors/BUGs]()
+4. [Other]()
+    - [Contributing]()
+    - [License]()
+    - [Note of Thanks]()
+<!-- Tabel of Content end -->
 
 ## How to use this calculator
 1. **Clone this repository:** Open your terminal and use the `git clone` clone command. After that paste the URL from this repository. Make sure that git is installed on your computer. To check that git is installed use the `git --version` command. If git isn't installed on your computer use homebrew to install git `brew install git`.
@@ -21,13 +33,19 @@ The calculator provided offers a comprehensive range of basic and practical func
 
 <img align="right"  width="100" src="https://media.giphy.com/media/11kEuHSQAXXiGQ/giphy.gif"></a>
 
-## Known Errors/BUGs 🪲
+## Known Errors/BUGs
 * [**🌟 Feature: Advanced arithmetic operations (#3)**](https://github.com/N3v1/Calculator/issues/3)
 * [**🌟 Feature: See calculation that made up result (#8)**](https://github.com/N3v1/Calculator/issues/8)
 
 
 ## Other
-### Note of Thanks 🙏
+### Contributing
+If you would like to contribute to this project, I welcome pull requests. Please ensure that your changes are well-documented and maintain clean, readable code. See [**`Contributing.md`**](Contribute.md).
+
+### License
+This project is licensed under the MIT License - see the [`LICENSE`](LICENSE) file for more information.
+
+### Note of Thanks
 * Many thanks to **Phil94comp** for helping me fix bug **#1**. You can find a link to his profile [**here**](https://github.com/Phil94comp).
 * Many thanks to **anubhav1206** for redesigning the calculator **#4** and **#6**. You can find a lihk to his profile [**here**](https://github.com/anubhav1206)
 * Many thanks to **jiri132** for his extraordinary help with this project. You can find a link to his profile [**here**](https://github.com/jiri132)
