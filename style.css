@@ -38,17 +38,32 @@ td:hover {
     cursor: pointer;
 }
 
-#resultArea {
-    height: 30vh;
-    background-color: rgb(40, 40, 40);
-    color: white;
-    font-size: 60px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    padding: 24px;
-    box-sizing: border-box;
+#previousExpression {
+  height: 10%;
+  background-color: transparent;
+  color: grey;
+  font-size: 18px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 2%;
+  box-sizing: border-box;
+  position: absolute;
+  top: 8%;
+  width: 100%;
 }
+
+#resultArea {
+  height: 30vh;
+  background-color: rgb(40, 40, 40);
+  color: white;
+  font-size: 60px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 4%;
+  box-sizing: border-box;
+} 
 
 #equalsign {
     background-color: rgb(209, 81, 21);
