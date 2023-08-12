@@ -35,7 +35,6 @@ The calculator provided offers a comprehensive range of basic and practical func
 
 ## Known Errors/BUGs
 * [**🌟 Feature: Advanced arithmetic operations (#3)**](https://github.com/N3v1/Calculator/issues/3)
-* [**🌟 Feature: See calculation that made up result (#8)**](https://github.com/N3v1/Calculator/issues/8)
 
 
 ## Other
