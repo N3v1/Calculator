@@ -3,8 +3,33 @@ Calculator in HTML,CSS and JS - (c) 2023 NH (N3v1) - Use at your own risk, no wa
 --------------------------------------------------------------------------------------
 */
 
+let lastInputIsOperator = false; // Variable to track the last input
+
 function appendOperation(operation) {
-    document.getElementById('resultArea').innerHTML += operation;
+    if (operation === ' . ' || operation === ' + ' || operation === ' - ' || operation === ' * ' || operation === ' / ') {
+        if (lastInputIsOperator) {
+            // Replace the last operator with the new one
+            const resultContainer = document.getElementById('resultArea');
+            resultContainer.innerHTML = resultContainer.innerHTML.slice(0, -3) + operation;
+        } else {
+            lastInputIsOperator = true;
+            document.getElementById('resultArea').innerHTML += operation;
+        }
+    } else {
+        lastInputIsOperator = false;
+        document.getElementById('resultArea').innerHTML += operation;
+    }
+}
+
+function appendDecimal(decimal) {
+    // Prevent appending a decimal right after an operator
+    if (!lastInputIsOperator) {
+        // Reset lastInputIsOperator when a decimal is added
+        lastInputIsOperator = false;
+
+        // Rest of the function remains unchanged
+        document.getElementById('resultArea').innerHTML += decimal;
+    }
 }
 
 function calculateResult() {
