@@ -23,7 +23,7 @@ Calculator in HTML,CSS and JS - (c) 2023 NH (N3v1) - Use at your own risk, no wa
     <!--Link the index.js file-->
     <script src="index.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/decimal.js/10.3.1/decimal.min.js"></script>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.min.js"></script>//for sin, cos, tan
     <!--Link the manifest file-->
     <link rel="manifest" href="manifest.webmanifest">
 
@@ -40,34 +40,38 @@ Calculator in HTML,CSS and JS - (c) 2023 NH (N3v1) - Use at your own risk, no wa
             <td onclick="appendOperation('(')">(</td>
             <td onclick="appendOperation(')')">)</td>
             <td onclick="appendOperation(' % ')">%</td>
+            <td class="trigonometric" onclick="appendTrigonometric('cos')">COS</td>
             <td onclick="deleteLast()" class="operators">DEL</td>
         </tr>
         <tr>
             <td onclick="appendOperation(7)">7</td>
             <td onclick="appendOperation(8)">8</td>
             <td onclick="appendOperation(9)">9</td>
+            <td class="trigonometric"onclick="appendTrigonometric('sin')">SIN</td>
             <td onclick="appendOperation(' / ')" class="operators">/</td>
         </tr>
         <tr>
             <td onclick="appendOperation(4)">4</td>
             <td onclick="appendOperation(5)">5</td>
             <td onclick="appendOperation(6)">6</td>
+            <td class="trigonometric" onclick="appendTrigonometric('tan')">TAN</td>
             <td onclick="appendOperation(' * ')" class="operators">x</td>
         </tr>
         <tr>
             <td onclick="appendOperation(1)">1</td>
             <td onclick="appendOperation(2)">2</td>
             <td onclick="appendOperation(3)">3</td>
+            <td class="specialNumber" onclick="appendOperation('e')">e</td>
             <td onclick="appendOperation(' + ')" class="operators">+</td>
         </tr>
         <tr>
             <td onclick="appendOperation(0)">0</td>
             <td onclick="appendDecimal('.')" class="operators">.</td>
             <td onclick="calculateResult()" id="equalsign">=</td>
-            
-            <!--The minus operation didn't have the appendOperation function in the onclick event. 
+            <td class="specialNumber" onclick="appendOperation('π')">&pi;</td>
+             <!--The minus operation didn't have the appendOperation function in the onclick event. 
                 After adding the appendOperation the subtraction is functioning properly. Phillip Andrews-->
-            <td onclick="appendOperation(' - ')" class="operators">-</td>
+                <td onclick="appendOperation(' - ')" class="operators">-</td>
         </tr>
     </table>
 </body>

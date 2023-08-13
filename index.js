@@ -4,7 +4,11 @@ Calculator in HTML,CSS and JS - (c) 2023 NH (N3v1) - Use at your own risk, no wa
 */
 
 let lastInputIsOperator = false; // Variable to track the last input
-
+function appendTrigonometric(trigFunction) {//handle trigonometric expressions buttons
+  const resultContainer = document.getElementById("resultArea");
+  resultContainer.innerHTML += trigFunction + " " + "(";
+  lastInputIsOperator = false;
+}
 function appendOperation(operation) {
   if (
     operation === " . " ||
@@ -23,7 +27,13 @@ function appendOperation(operation) {
       lastInputIsOperator = true;
       document.getElementById("resultArea").innerHTML += operation;
     }
-  } else {
+  }
+  else if (operation === "e" ||
+    operation === "π") {
+    document.getElementById("resultArea").innerHTML += operation;
+    lastInputIsOperator = false;
+  }
+  else {
     lastInputIsOperator = false;
     document.getElementById("resultArea").innerHTML += operation;
   }
@@ -80,13 +90,25 @@ function calculateResult() {
 
     newCalculation.push(part); // Push non-percentage parts to the newCalculation array
   });
-
   const previousExpression = splitUpCalculation.join(" "); // Join the parts back to the expression
   previousExpressionContainer.innerHTML = previousExpression;
-
-  // Use Decimal type for calculations
-  let result = new Decimal(eval(newCalculation.join(" "))); // Evaluate the new expression
+  // Evaluate the new expression with support for trigonometric functions, e, and pi
+  let result = evalWithTrigAndSpecial(newCalculation.join(" "));
   resultContainer.innerHTML = result.toString(); // Convert result to string for display
+}
+// Evaluate the expression with support for trigonometric functions, e, and pi
+function evalWithTrigAndSpecial(expression) {
+  // Replace trigonometric functions with their calculated values
+  expression = expression.replace(/sin/gi, "Math.sin");
+  expression = expression.replace(/cos/gi, "Math.cos");
+  expression = expression.replace(/tan/gi, "Math.tan");
+  // Replace special numbers with their values
+  expression = expression.replace(/e/gi, "Math.E");
+  expression = expression.replace(/pi/gi, "Math.PI");
+  expression = expression.replace('π', "Math.PI");
+  console.log(expression);
+  // Use eval to evaluate the modified expression
+  return eval(expression);
 }
 
 function deleteLast() {
@@ -102,9 +124,18 @@ function deleteLast() {
 document.addEventListener("keydown", (event) => {
   // Get the pressed key
   const key = event.key;
-
   if (key === "%") {
     appendOperation(" % ");
+  } else if (key === "e") {
+    appendOperation("e");
+  } else if (key === "p") {//  Please note that this solution assumes that the calculator does not have any other functionality associated with the key combination "pi". If there are conflicting key combinations or additional requirements, further modifications may be neccessary
+    // Check if the next key pressed is "i"
+    document.addEventListener("keydown", (nextEvent) => {
+      if (nextEvent.key === "i") {
+        appendOperation('π'); // Append "pi" to the expression
+        nextEvent.preventDefault(); // Prevent the default behavior of the "i" key
+      }
+    });
   } else if (/[0-9.]/.test(key)) {
     appendOperation(key);
   } else if (/[+\-*/]/.test(key)) {

@@ -30,7 +30,7 @@ table {
 }
 
 td {
-    width: 25%;
+    width: 20%;
     text-align: center;
     font-size: 24px;
     background-color: rgb(20, 20, 20);
@@ -76,11 +76,15 @@ td:hover {
     background-color:  rgb(196, 106, 67);
 }
 
-.operators {
+.operators,
+.specialNumber,
+.trigonometric{
     background-color: rgb(209, 81, 21);
 }
 
-.operators:hover {
+.operators:hover
+.trigonometric:hover 
+.specialNumber:hover{
     background-color:  rgb(196, 106, 67);
 }
 * {
