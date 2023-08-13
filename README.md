@@ -40,7 +40,7 @@ The calculator provided offers a comprehensive range of basic and practical func
 
 ## Other
 ### Contributing
-If you would like to contribute to this project, I welcome pull requests. Please ensure that your changes are well-documented and maintain clean, readable code. See [**`Contributing.md`**](Contribute.md).
+If you would like to contribute to this project, I welcome pull requests. Please ensure that your changes are well-documented and maintain clean, readable code. See [**`Contributing.md`**](Contributing.md).
 
 ### License
 This project is licensed under the MIT License - see the [`LICENSE`](LICENSE) file for more information.
