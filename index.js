@@ -40,15 +40,6 @@ function appendDecimal(decimal) {
   }
 }
 
-// Assuming you've included the decimal.js library in your HTML
-
-// Assuming you've included the decimal.js library in your HTML
-
-// Convert a percentage value to a decimal
-function percentageToDecimal(percentage) {
-  return new Decimal(percentage) / 100; // Divide the percentage value by 100 to get the decimal value
-}
-
 // Calculate and display the result of the expression
 function calculateResult() {
   // Get containers for previous expression and result display
@@ -57,36 +48,14 @@ function calculateResult() {
   const resultContainer = document.getElementById("resultArea");
 
   // Get the expression from the result display
-  const calculation = resultContainer.innerHTML;
-  const splitUpCalculation = calculation.split(" "); // Split the expression into parts
+  const expression = resultContainer.innerHTML;
 
-  let newCalculation = [];
+  //Insert the current expression into the previousExpressionContainer on display
+  previousExpressionContainer.innerHTML = expression;
 
-  // Iterate through the expression parts
-  splitUpCalculation.forEach((part, index) => {
-    if (part === "%") {
-      // If the part is a percentage symbol
-      const number = splitUpCalculation[index - 1]; // Get the number before the percentage symbol
-      const nC_index = newCalculation.length - 1;
-
-      // Check if the number is already a decimal or needs conversion
-      if (typeof number === "number") {
-        newCalculation[nC_index] = number / 100; // Convert the number to a decimal
-      } else {
-        newCalculation[nC_index] = percentageToDecimal(number); // Convert the percentage value to a decimal
-      }
-      return;
-    }
-
-    newCalculation.push(part); // Push non-percentage parts to the newCalculation array
-  });
-
-  const previousExpression = splitUpCalculation.join(" "); // Join the parts back to the expression
-  previousExpressionContainer.innerHTML = previousExpression;
-
-  // Use Decimal type for calculations
-  let result = new Decimal(eval(newCalculation.join(" "))); // Evaluate the new expression
-  resultContainer.innerHTML = result.toString(); // Convert result to string for display
+  // Use the 'math.js' lib to first compile the expression and then evaluate it.
+  let result = math.compile(expression).evaluate(); // Math.js - Compile(type 'string') then Evaluate() - returns number;
+  resultContainer.innerHTML = result.toString(); // Convert result type 'number' to string for display
 }
 
 function deleteLast() {
