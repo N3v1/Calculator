@@ -67,6 +67,11 @@ function deleteLast() {
   }
 }
 
+function clearResult() {
+  let container = document.getElementById("resultArea");
+  container.innerHTML = container.innerHTML.slice(0, 0);
+}
+
 // Add a keydown event listener to the document
 document.addEventListener("keydown", (event) => {
   // Get the pressed key
@@ -78,9 +83,15 @@ document.addEventListener("keydown", (event) => {
     appendOperation(key);
   } else if (/[+\-*/]/.test(key)) {
     appendOperation(` ${key} `);
-  } else if (key === "Backspace") {
+  } else if (key === "Backspace" || key === "Delete") {
     deleteLast();
   } else if (key === "Enter" || key === "=") {
     calculateResult();
+  }
+});
+
+document.addEventListener('keydown', function(event) {
+  if ((event.keyCode === 8 || event.keyCode === 46) && event.ctrlKey) {
+    clearResult();
   }
 });
