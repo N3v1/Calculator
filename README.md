@@ -34,8 +34,7 @@ The calculator provided offers a comprehensive range of basic and practical func
 <img align="right"  width="100" src="https://media.giphy.com/media/11kEuHSQAXXiGQ/giphy.gif"></a>
 
 ## Known Errors/BUGs
-* [**🌟 Feature: Advanced arithmetic operations (#3)**](https://github.com/N3v1/Calculator/issues/3)
-* [**🔴 BUG: % is not working properly (#19)**](https://github.com/N3v1/Calculator/issues/19)
+none
 
 
 ## Other
