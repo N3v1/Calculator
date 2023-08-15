@@ -76,6 +76,18 @@ td:hover {
     background-color:  rgb(196, 106, 67);
 }
 
+#clrButton {
+  position: fixed;
+  top: 0%;
+  right: 0%;
+  width: 25%;
+  height: 5%;
+  text-align: center;
+  font-size: 24px;
+  border: none;
+  color: white;
+}
+
 .operators {
     background-color: rgb(209, 81, 21);
 }
