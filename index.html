@@ -48,14 +48,18 @@ Calculator in HTML,CSS and JS - (c) 2023 NH (N3v1) - Use at your own risk, no wa
       </div>
 
       <tr>
-        <td onclick="clearResult()" class="operators" id="clrButton" colspan="4">CLR</td>
+        <!-- ! For trigonometry, ...  start -->
+        <td onclick="appendDecimal('.')">.</td>
+        <td onclick="appendDecimal('.')">.</td>
+        <td onclick="appendDecimal('.')">.</td>
+        <!-- ! For trigonometry, ...  end -->
+        <td onclick="clearResult()" class="operators" id="clrButton">AC</td>
       </tr>
-
       <tr>
         <td onclick="appendOperation('(')">(</td>
         <td onclick="appendOperation(')')">)</td>
         <td onclick="appendOperation(' % ')">%</td>
-        <td onclick="deleteLast()" class="operators">DEL</td>
+        <td onclick="deleteLast()" class="operators">C</td>
       </tr>
       <tr>
         <td onclick="appendOperation(7)">7</td>
