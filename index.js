@@ -5,6 +5,12 @@ Calculator in HTML,CSS and JS - (c) 2023 NH (N3v1) - Use at your own risk, no wa
 
 let lastInputIsOperator = false; // Variable to track the last input
 
+function appendTrigonometric(trigFunction) { //handle trigonometric expressions buttons
+  const resultContainer = document.getElementById("resultArea");
+  resultContainer.innerHTML += trigFunction + " " + "(";
+  lastInputIsOperator = false;
+}
+
 function appendOperation(operation) {
   if (
     operation === " . " ||
@@ -23,9 +29,12 @@ function appendOperation(operation) {
       lastInputIsOperator = true;
       document.getElementById("resultArea").innerHTML += operation;
     }
+  } else if (operation === "e" || operation === "π") {
+    document.getElementById("resultArea").innerHTML += operation;
+    lastInputIsOperator = false;
   } else {
     lastInputIsOperator = false;
-    document.getElementById("resultArea").innerHTML += operation;
+    document.getElementById("resultArea").innerHTML += operation; // ...
   }
 }
 
