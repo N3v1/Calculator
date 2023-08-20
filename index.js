@@ -92,10 +92,12 @@ function calculateResult() {
   });
   const previousExpression = splitUpCalculation.join(" "); // Join the parts back to the expression
   previousExpressionContainer.innerHTML = previousExpression;
+
   // Evaluate the new expression with support for trigonometric functions, e, and pi
   let result = evalWithTrigAndSpecial(newCalculation.join(" "));
   resultContainer.innerHTML = result.toString(); // Convert result to string for display
 }
+
 // Evaluate the expression with support for trigonometric functions, e, and pi
 function evalWithTrigAndSpecial(expression) {
   // Replace trigonometric functions with their calculated values
