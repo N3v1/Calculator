@@ -27,13 +27,7 @@ function appendOperation(operation) {
       lastInputIsOperator = true;
       document.getElementById("resultArea").innerHTML += operation;
     }
-  }
-  else if (operation === "e" ||
-    operation === "π") {
-    document.getElementById("resultArea").innerHTML += operation;
-    lastInputIsOperator = false;
-  }
-  else {
+  } else {
     lastInputIsOperator = false;
     document.getElementById("resultArea").innerHTML += operation;
   }
@@ -50,15 +44,6 @@ function appendDecimal(decimal) {
   }
 }
 
-// Assuming you've included the decimal.js library in your HTML
-
-// Assuming you've included the decimal.js library in your HTML
-
-// Convert a percentage value to a decimal
-function percentageToDecimal(percentage) {
-  return new Decimal(percentage) / 100; // Divide the percentage value by 100 to get the decimal value
-}
-
 // Calculate and display the result of the expression
 function calculateResult() {
   // Get containers for previous expression and result display
@@ -67,50 +52,15 @@ function calculateResult() {
   const resultContainer = document.getElementById("resultArea");
 
   // Get the expression from the result display
-  const calculation = resultContainer.innerHTML;
-  const splitUpCalculation = calculation.split(" "); // Split the expression into parts
+  let expression = resultContainer.innerHTML;
 
-  let newCalculation = [];
-
-  // Iterate through the expression parts
-  splitUpCalculation.forEach((part, index) => {
-    if (part === "%") {
-      // If the part is a percentage symbol
-      const number = splitUpCalculation[index - 1]; // Get the number before the percentage symbol
-      const nC_index = newCalculation.length - 1;
-
-      // Check if the number is already a decimal or needs conversion
-      if (typeof number === "number") {
-        newCalculation[nC_index] = number / 100; // Convert the number to a decimal
-      } else {
-        newCalculation[nC_index] = percentageToDecimal(number); // Convert the percentage value to a decimal
-      }
-      return;
-    }
-
-    newCalculation.push(part); // Push non-percentage parts to the newCalculation array
-  });
-  const previousExpression = splitUpCalculation.join(" "); // Join the parts back to the expression
-  previousExpressionContainer.innerHTML = previousExpression;
-
-  // Evaluate the new expression with support for trigonometric functions, e, and pi
-  let result = evalWithTrigAndSpecial(newCalculation.join(" "));
-  resultContainer.innerHTML = result.toString(); // Convert result to string for display
-}
-
-// Evaluate the expression with support for trigonometric functions, e, and pi
-function evalWithTrigAndSpecial(expression) {
-  // Replace trigonometric functions with their calculated values
-  expression = expression.replace(/sin/gi, "Math.sin");
-  expression = expression.replace(/cos/gi, "Math.cos");
-  expression = expression.replace(/tan/gi, "Math.tan");
-  // Replace special numbers with their values
-  expression = expression.replace(/e/gi, "Math.E");
-  expression = expression.replace(/pi/gi, "Math.PI");
-  expression = expression.replace('π', "Math.PI");
+  //Insert the current expression into the previousExpressionContainer on display
+  previousExpressionContainer.innerHTML = expression;
+  expression = expression.replace('π', "pi");
   console.log(expression);
-  // Use eval to evaluate the modified expression
-  return eval(expression);
+  // Use the 'math.js' lib to first compile the expression and then evaluate it.
+  let result = math.compile(expression).evaluate(); // Math.js - Compile(type 'string') then Evaluate() - returns number;
+  resultContainer.innerHTML = result.toString(); // Convert result type 'number' to string for display
 }
 
 function deleteLast() {
@@ -120,6 +70,11 @@ function deleteLast() {
   } else {
     container.innerHTML = container.innerHTML.slice(0, -1);
   }
+}
+
+function clearResult() {
+  let container = document.getElementById("resultArea");
+  container.innerHTML = container.innerHTML.slice(0, 0);
 }
 
 // Add a keydown event listener to the document
