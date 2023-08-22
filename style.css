@@ -60,13 +60,25 @@ td:hover {
   height: 30vh;
   background-color: rgb(40, 40, 40);
   color: white;
-  font-size: 60px;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
   padding: 4%;
   box-sizing: border-box;
 } 
+
+/* added the result css to make it break and reduce - ify47 */
+#result {
+  font-size: 20px;
+  word-wrap: break-word;
+  overflow-y: scroll;
+  height: 50%;
+  
+}
+
+#result::-webkit-scrollbar, #previousExpression::-webkit-scrollbar {
+display: none;
+}
 
 #equalsign {
     background-color: rgb(209, 81, 21);
@@ -169,6 +181,27 @@ td:hover {
   @media (max-width: 481px) {
 table {
   height: 57vh; /* ify42-added height for smaller devices so it can be responsive */
+}
+
+
+/* made scrolling responsive for smaller devices- ify47 */
+#result { 
+  font-size: 20px;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+
+#resultArea {
+  margin-top: 50px;
+}
+
+#previousExpression {
+  height: 9%;
+  display: block;
+  word-wrap: break-word;
+  overflow: scroll;
+  top: 12%;
+  direction: rtl;
 }
     
   }

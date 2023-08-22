@@ -16,16 +16,16 @@ function appendOperation(operation) {
   ) {
     if (lastInputIsOperator) {
       // Replace the last operator with the new one
-      const resultContainer = document.getElementById("resultArea");
+      const resultContainer = document.getElementById("result");
       resultContainer.innerHTML =
         resultContainer.innerHTML.slice(0, -3) + operation;
     } else {
       lastInputIsOperator = true;
-      document.getElementById("resultArea").innerHTML += operation;
+      document.getElementById("result").innerHTML += operation;
     }
   } else {
     lastInputIsOperator = false;
-    document.getElementById("resultArea").innerHTML += operation;
+    document.getElementById("result").innerHTML += operation;
   }
 }
 
@@ -36,7 +36,7 @@ function appendDecimal(decimal) {
     lastInputIsOperator = false;
 
     // Rest of the function remains unchanged
-    document.getElementById("resultArea").innerHTML += decimal;
+    document.getElementById("result").innerHTML += decimal;
   }
 }
 
@@ -45,7 +45,7 @@ function calculateResult() {
   // Get containers for previous expression and result display
   const previousExpressionContainer =
     document.getElementById("previousExpression");
-  const resultContainer = document.getElementById("resultArea");
+  const resultContainer = document.getElementById("result");
 
   // Get the expression from the result display
   const expression = resultContainer.innerHTML;
@@ -59,7 +59,7 @@ function calculateResult() {
 }
 
 function deleteLast() {
-  let container = document.getElementById("resultArea");
+  let container = document.getElementById("result");
   if (container.innerHTML.endsWith(" ")) {
     container.innerHTML = container.innerHTML.slice(0, -3);
   } else {
@@ -68,7 +68,7 @@ function deleteLast() {
 }
 
 function clearResult() {
-  let container = document.getElementById("resultArea");
+  let container = document.getElementById("result");
   container.innerHTML = container.innerHTML.slice(0, 0);
 }
 
@@ -90,7 +90,7 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-document.addEventListener('keydown', function(event) {
+document.addEventListener("keydown", function (event) {
   if ((event.keyCode === 8 || event.keyCode === 46) && event.ctrlKey) {
     clearResult();
   }
