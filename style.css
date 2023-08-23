@@ -68,17 +68,17 @@ td:hover {
 } 
 
 /* added the result css to make it break and reduce - ify47 */
-#result {
+/** #result {
   font-size: 20px;
   word-wrap: break-word;
   overflow-y: scroll;
   height: 50%;
   
-}
+}**/
 
-#result::-webkit-scrollbar, #previousExpression::-webkit-scrollbar {
+/** #result::-webkit-scrollbar, #previousExpression::-webkit-scrollbar {
 display: none;
-}
+} **/
 
 #equalsign {
     background-color: rgb(209, 81, 21);
@@ -185,11 +185,11 @@ table {
 
 
 /* made scrolling responsive for smaller devices- ify47 */
-#result { 
+/** #result { 
   font-size: 20px;
   word-wrap: break-word;
   overflow: hidden;
-}
+} **/
 
 #resultArea {
   margin-top: 50px;
