@@ -73,7 +73,7 @@ function deleteLast() {
 }
 
 function clearResult() {
-  let container = document.getElementById("resultArea");
+ let container = document.getElementById("result");
   container.innerHTML = container.innerHTML.slice(0, 0);
 }
 
