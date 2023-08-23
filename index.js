@@ -57,11 +57,12 @@ function calculateResult() {
   const resultContainer = document.getElementById("resultArea");
 
   // Get the expression from the result display
-  const expression = resultContainer.innerHTML;
+  let expression = resultContainer.innerHTML;
 
   //Insert the current expression into the previousExpressionContainer on display
   previousExpressionContainer.innerHTML = expression;
-
+  expression = expression.replace('π', "pi");
+  console.log(expression);
   // Use the 'math.js' lib to first compile the expression and then evaluate it.
   let result = math.compile(expression).evaluate(); // Math.js - Compile(type 'string') then Evaluate() - returns number;
   resultContainer.innerHTML = result.toString(); // Convert result type 'number' to string for display
