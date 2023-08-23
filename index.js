@@ -4,7 +4,11 @@ Calculator in HTML,CSS and JS - (c) 2023 NH (N3v1) - Use at your own risk, no wa
 */
 
 let lastInputIsOperator = false; // Variable to track the last input
-
+function appendTrigonometric(trigFunction) {//handle trigonometric expressions buttons
+  const resultContainer = document.getElementById("resultArea");
+  resultContainer.innerHTML += trigFunction + " " + "(";
+  lastInputIsOperator = false;
+}
 function appendOperation(operation) {
   if (
     operation === " . " ||
@@ -77,9 +81,18 @@ function clearResult() {
 document.addEventListener("keydown", (event) => {
   // Get the pressed key
   const key = event.key;
-
   if (key === "%") {
     appendOperation(" % ");
+  } else if (key === "e") {
+    appendOperation("e");
+  } else if (key === "p") {//  Please note that this solution assumes that the calculator does not have any other functionality associated with the key combination "pi". If there are conflicting key combinations or additional requirements, further modifications may be neccessary
+    // Check if the next key pressed is "i"
+    document.addEventListener("keydown", (nextEvent) => {
+      if (nextEvent.key === "i") {
+        appendOperation('π'); // Append "pi" to the expression
+        nextEvent.preventDefault(); // Prevent the default behavior of the "i" key
+      }
+    });
   } else if (/[0-9.]/.test(key)) {
     appendOperation(key);
   } else if (/[+\-*/]/.test(key)) {
