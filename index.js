@@ -20,16 +20,16 @@ function appendOperation(operation) {
   ) {
     if (lastInputIsOperator) {
       // Replace the last operator with the new one
-      const resultContainer = document.getElementById("result");
+      const resultContainer = document.getElementById("resultArea");
       resultContainer.innerHTML =
         resultContainer.innerHTML.slice(0, -3) + operation;
     } else {
       lastInputIsOperator = true;
-      document.getElementById("result").innerHTML += operation;
+      document.getElementById("resultArea").innerHTML += operation;
     }
   } else {
     lastInputIsOperator = false;
-    document.getElementById("result").innerHTML += operation;
+    document.getElementById("resultArea").innerHTML += operation;
   }
 }
 
@@ -40,7 +40,7 @@ function appendDecimal(decimal) {
     lastInputIsOperator = false;
 
     // Rest of the function remains unchanged
-    document.getElementById("result").innerHTML += decimal;
+    document.getElementById("resultArea").innerHTML += decimal;
   }
 }
 
@@ -64,7 +64,7 @@ function calculateResult() {
 }
 
 function deleteLast() {
-  let container = document.getElementById("result");
+  let container = document.getElementById("resultArea");
   if (container.innerHTML.endsWith(" ")) {
     container.innerHTML = container.innerHTML.slice(0, -3);
   } else {
@@ -73,7 +73,7 @@ function deleteLast() {
 }
 
 function clearResult() {
-  let container = document.getElementById("result");
+  let container = document.getElementById("resultArea");
   container.innerHTML = container.innerHTML.slice(0, 0);
 }
 
