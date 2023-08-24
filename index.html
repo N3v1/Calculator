@@ -21,9 +21,7 @@ Calculator in HTML,CSS and JS - (c) 2023 NH (N3v1) - Use at your own risk, no wa
 
     <!--Import css file-->
     <link rel="stylesheet" href="style.css" />
-
-    <!--Link the index.js file-->
-    <script src="index.js"></script>
+    
 
     <!--Add the 'math.js' lib script tag-->
     <script
@@ -44,6 +42,11 @@ Calculator in HTML,CSS and JS - (c) 2023 NH (N3v1) - Use at your own risk, no wa
     <div id="previousExpression"></div>
     <!-- New div for previous expression -->
     <div id="resultArea"></div>
+    <div id="resultArea"> 
+      <div id="result">  <!-- added a new result div for font reduction -ify47 -->
+        <div class="resultCalc"></div>
+      </div>
+    </div>
     
 
     <table>
@@ -101,5 +104,8 @@ Calculator in HTML,CSS and JS - (c) 2023 NH (N3v1) - Use at your own risk, no wa
         <td onclick="appendOperation(' - ')" class="operators">-</td>
       </tr>
     </table>
+    <!-- brought js file down so it will run properly - ify47 -->
+    <script src="index.js"></script>
   </body>
+
 </html>
