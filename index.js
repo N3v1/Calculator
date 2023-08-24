@@ -22,7 +22,7 @@ function resize_to_fit() {
 output.addEventListener("input", resize_to_fit);
 function appendTrigonometric(trigFunction) {
   //handle trigonometric expressions buttons
-  const resultContainer = document.getElementById("result");
+  const resultContainer = document.querySelector(".resultCalc");
   resultContainer.innerHTML += trigFunction + " " + "(";
   lastInputIsOperator = false;
 }
