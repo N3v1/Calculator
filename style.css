@@ -192,6 +192,7 @@ table {
 .resultCalc {
   word-break: break-all;
   word-wrap: break-word;
+  float: right;
 }
 
 
