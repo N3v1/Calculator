@@ -37,16 +37,16 @@ function appendOperation(operation) {
   ) {
     if (lastInputIsOperator) {
       // Replace the last operator with the new one
-      const resultContainer = document.getElementById("result");
+      const resultContainer = document.querySelector(".resultCalc");
       resultContainer.innerHTML =
         resultContainer.innerHTML.slice(0, -3) + operation;
     } else {
       lastInputIsOperator = true;
-      document.getElementById("result").innerHTML += operation;
+      document.querySelector(".resultCalc").innerHTML += operation;
     }
   } else {
     lastInputIsOperator = false;
-    document.getElementById("result").innerHTML += operation;
+    document.querySelector(".resultCalc").innerHTML += operation;
   }
   // adding it to each function - ify47
   resize_to_fit();
@@ -59,7 +59,7 @@ function appendDecimal(decimal) {
     lastInputIsOperator = false;
 
     // Rest of the function remains unchanged
-    document.getElementById("result").innerHTML += decimal;
+    document.querySelector(".resultCalc").innerHTML += decimal;
   }
 }
 
@@ -68,7 +68,7 @@ function calculateResult() {
   // Get containers for previous expression and result display
   const previousExpressionContainer =
     document.getElementById("previousExpression");
-  const resultContainer = document.getElementById("result");
+  const resultContainer = document.querySelector(".resultCalc");
 
   // Get the expression from the result display
   let expression = resultContainer.innerHTML;
@@ -84,7 +84,7 @@ function calculateResult() {
 }
 
 function deleteLast() {
-  let container = document.getElementById("result");
+  let container = document.querySelector(".resultCalc");
   if (container.innerHTML.endsWith(" ")) {
     container.innerHTML = container.innerHTML.slice(0, -3);
   } else {
@@ -99,7 +99,7 @@ function deleteLast() {
 }
 
 function clearResult() {
-  let container = document.getElementById("result");
+  let container = document.querySelector(".resultCalc");
   container.innerHTML = container.innerHTML.slice(0, 0);
   output.style.fontSize = "30px"; //adding maximum font size for clearResult - ify47
 }
