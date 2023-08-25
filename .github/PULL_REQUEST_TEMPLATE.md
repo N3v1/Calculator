@@ -3,7 +3,7 @@ Thank you for sending the PR! We appreciate you spending the time to work on the
 
 Help us understand your motivation by explaining why you decided to make this change.
 
-You can learn more about contributing to appwrite here: https://github.com/appwrite/appwrite/blob/master/CONTRIBUTING.md
+You can learn more about contributing to appwrite here: https://github.com/N3v1/Calculator/blob/master/CONTRIBUTING.md
 
 Happy contributing!
 
