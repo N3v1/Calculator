@@ -11,7 +11,6 @@ const defaultFontSize = 30; // Default font size
 
 function resize_to_fit() {
   let fontSize = defaultFontSize;
-
   while (output.clientHeight > outputContainer.clientHeight && fontSize > 10) {
     fontSize--;
     output.style.fontSize = fontSize + "px";
@@ -51,7 +50,11 @@ function appendOperation(operation) {
   // adding it to each function - ify47
   resize_to_fit();
 }
-
+function appendFunction(functionName) {
+  const resultContainer = document.querySelector(".resultCalc");
+  resultContainer.innerHTML += functionName + "(";
+  lastInputIsOperator = true;
+}
 function appendDecimal(decimal) {
   // Prevent appending a decimal right after an operator
   if (!lastInputIsOperator) {
@@ -76,6 +79,8 @@ function calculateResult() {
   //Insert the current expression into the previousExpressionContainer on display
   previousExpressionContainer.innerHTML = expression;
   expression = expression.replace("π", "pi");
+    // Replace the square root symbol with the Math.sqrt() method
+    expression = expression.replace("√", "sqrt");
   console.log(expression);
   // Use the 'math.js' lib to first compile the expression and then evaluate it.
   let result = math.compile(expression).evaluate(); // Math.js - Compile(type 'string') then Evaluate() - returns number;
@@ -112,7 +117,20 @@ document.addEventListener("keydown", (event) => {
     appendOperation(" % ");
   } else if (key === "e") {
     appendOperation("e");
-  } else if (key === "p") {
+  }else if (key==="^")
+  {
+    appendFunction("^")
+  }
+  else if (key === "s") {
+    // Check if the next key pressed is "p"
+    document.addEventListener("keydown", (nextEvent) => {
+      if (nextEvent.key === "p") {
+        appendFunction('&#8730;'); // Append "sprt" to the expression
+        nextEvent.preventDefault(); // Prevent the default behavior of the "p" key
+      }
+    });
+  }
+   else if (key === "p") {
     //  Please note that this solution assumes that the calculator does not have any other functionality associated with the key combination "pi". If there are conflicting key combinations or additional requirements, further modifications may be neccessary
     // Check if the next key pressed is "i"
     document.addEventListener("keydown", (nextEvent) => {
