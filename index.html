@@ -6,102 +6,101 @@ Calculator in HTML,CSS and JS - (c) 2023 NH (N3v1) - Use at your own risk, no wa
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calculator</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculator</title>
 
-    <!--Import css file-->
-    <link rel="stylesheet" href="style.css" />
-    
-    <!--Add the 'math.js' lib script tag (using the minified version of the library)-->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
 
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.10.0/math.min.js"
-      integrity="sha512-Y5iDNm1edrOTaYkJGH4GlmiKhvSHMBJ9st3DOchcFvsLdrVrMs345L6SE/3KNxRQpUqSSnuwYU8QuN/crfKdmg=="
-      crossorigin="anonymous" 
-      referrerpolicy="no-referrer">
+  <!--Import css file-->
+  <link rel="stylesheet" href="style.css" />
+
+  <!--Add the 'math.js' lib script tag (using the minified version of the library)-->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.10.0/math.min.js"
+    integrity="sha512-Y5iDNm1edrOTaYkJGH4GlmiKhvSHMBJ9st3DOchcFvsLdrVrMs345L6SE/3KNxRQpUqSSnuwYU8QuN/crfKdmg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
     </script>
 
-    <!--Link the manifest file-->
-    <link rel="manifest" href="manifest.webmanifest" />
-  </head>
+  <!--Link the manifest file-->
+  <link rel="manifest" href="manifest.webmanifest" />
+</head>
 
-  <body>
-    <div id="previousExpression"></div>
-    <!-- New div for previous expression -->
-    
-    <div id="resultArea"> 
-      <div id="result">  <!-- added a new result div for font reduction -ify47 -->
-        <div class="resultCalc"></div>
-      </div>
+<body>
+  <div id="previousExpression"></div>
+  <!-- New div for previous expression -->
+
+  <div id="resultArea">
+    <div id="result"> <!-- added a new result div for font reduction -ify47 -->
+      <div class="resultCalc"></div>
     </div>
-    
+  </div>
 
-    <table>
-      <div class="heading">
-        <span class="magic"><span class="magic-text">Calculator</span></span>
-      </div>
 
-      <tr>
-        <!-- ! For special things (e, pi, pow) start -->
-        <td onclick="appendDecimal('.')" class="specialNumber">sqrt</td> <!-- TODO: Please change the symbols -->
-        <td onclick="appendDecimal('.')" class="specialNumber">pow</td>  <!-- TODO: Please change the symbols -->
-        <td class="specialNumber" onclick="appendOperation('e')">e</td>
-        <td class="specialNumber" onclick="appendOperation('π')">&pi;</td>
-        <!-- ! For special things (e, pi, pow) start end -->
-      </tr>
-      <tr>
-        <!-- ! For trigonometry, ...  start -->
-        <td class="trigonometric" onclick="appendTrigonometric('sin')">sin</td> <!-- sin -->
-        <td class="trigonometric" onclick="appendTrigonometric('cos')">cos</td> <!-- cos -->
-        <td class="trigonometric" onclick="appendTrigonometric('tan')">tan</td> <!-- tan -->
-        <!-- ! For trigonometry, ...  end -->
-        <td onclick="clearResult()" class="operators" id="clrButton">AC</td>
-      </tr>
-      <tr>
-        <td onclick="appendOperation('(')">(</td>
-        <td onclick="appendOperation(')')">)</td>
-        <td onclick="appendOperation(' % ')">%</td>
-        <td onclick="deleteLast()" class="operators">C</td>
-      </tr>
-      <tr>
-        <td onclick="appendOperation(7)">7</td>
-        <td onclick="appendOperation(8)">8</td>
-        <td onclick="appendOperation(9)">9</td>
-        <td onclick="appendOperation(' / ')" class="operators">/</td>
-      </tr>
-      <tr>
-        <td onclick="appendOperation(4)">4</td>
-        <td onclick="appendOperation(5)">5</td>
-        <td onclick="appendOperation(6)">6</td>
-        <td onclick="appendOperation(' * ')" class="operators">x</td>
-      </tr>
-      <tr>
-        <td onclick="appendOperation(1)">1</td>
-        <td onclick="appendOperation(2)">2</td>
-        <td onclick="appendOperation(3)">3</td>
-        <td onclick="appendOperation(' + ')" class="operators">+</td>
-      </tr>
-      <tr>
-        <td onclick="appendOperation(0)">0</td>
-        <td onclick="appendDecimal('.')" class="operators">.</td>
-        <td onclick="calculateResult()" id="equalsign">=</td>
+  <table>
+    <div class="heading">
+      <span class="magic"><span class="magic-text">Calculator</span></span>
+    </div>
 
-        <!--The minus operation didn't have the appendOperation function in the onclick event. 
+    <tr>
+      <!-- ! For special things (e, pi, pow) start -->
+      <td onclick="appendFunction('&#8730;')" class="specialNumber">√</td>
+      <td onclick="appendFunction('&#94;')" class="specialNumber">pow</td>
+      <td class="specialNumber" onclick="appendOperation('e')">e</td>
+      <td class="specialNumber" onclick="appendOperation('π')">&pi;</td>
+      <!-- ! For special things (e, pi, pow) start end -->
+    </tr>
+    <tr>
+      <!-- ! For trigonometry, ...  start -->
+      <td class="trigonometric" onclick="appendTrigonometric('sin')">sin</td> <!-- sin -->
+      <td class="trigonometric" onclick="appendTrigonometric('cos')">cos</td> <!-- cos -->
+      <td class="trigonometric" onclick="appendTrigonometric('tan')">tan</td> <!-- tan -->
+      <!-- ! For trigonometry, ...  end -->
+      <td onclick="clearResult()" class="operators" id="clrButton">AC</td>
+    </tr>
+    <tr>
+      <td onclick="appendOperation('(')">(</td>
+      <td onclick="appendOperation(')')">)</td>
+      <td onclick="appendOperation(' % ')">%</td>
+      <td onclick="deleteLast()" class="operators">C</td>
+    </tr>
+    <tr>
+      <td onclick="appendOperation(7)">7</td>
+      <td onclick="appendOperation(8)">8</td>
+      <td onclick="appendOperation(9)">9</td>
+      <td onclick="appendOperation(' / ')" class="operators">/</td>
+    </tr>
+    <tr>
+      <td onclick="appendOperation(4)">4</td>
+      <td onclick="appendOperation(5)">5</td>
+      <td onclick="appendOperation(6)">6</td>
+      <td onclick="appendOperation(' * ')" class="operators">x</td>
+    </tr>
+    <tr>
+      <td onclick="appendOperation(1)">1</td>
+      <td onclick="appendOperation(2)">2</td>
+      <td onclick="appendOperation(3)">3</td>
+      <td onclick="appendOperation(' + ')" class="operators">+</td>
+    </tr>
+    <tr>
+      <td onclick="appendOperation(0)">0</td>
+      <td onclick="appendDecimal('.')" class="operators">.</td>
+      <td onclick="calculateResult()" id="equalsign">=</td>
+
+      <!--The minus operation didn't have the appendOperation function in the onclick event. 
                 After adding the appendOperation the subtraction is functioning properly. Phillip Andrews-->
-        <td onclick="appendOperation(' - ')" class="operators">-</td>
-      </tr>
-    </table>
-    <!-- brought js file down so it will run properly - ify47 -->
-    <script src="index.js"></script>
-  </body>
+      <td onclick="appendOperation(' - ')" class="operators">-</td>
+    </tr>
+  </table>
+  <!-- brought js file down so it will run properly - ify47 -->
+  <script src="index.js"></script>
+</body>
 
 </html>
