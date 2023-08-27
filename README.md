@@ -57,3 +57,5 @@ This project is licensed under the MIT License - see the [`LICENSE`](LICENSE) fi
 - Many thanks to **Phil94comp** for helping me fix bug **#1**. You can find a link to his profile [**here**](https://github.com/Phil94comp).
 - Many thanks to **anubhav1206** for redesigning the calculator **#4** and **#6**. You can find a lihk to his profile [**here**](https://github.com/anubhav1206)
 - Many thanks to **jiri132** for his extraordinary help with this project. You can find a link to his profile [**here**](https://github.com/jiri132)
+- Many things to **chavi362** for her extraordinary help with this project. You can find a link to his profile [**here**](https://github.com/chavi362)
+- Many thanks to everyone who contributed to this project
