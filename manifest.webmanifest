@@ -1,9 +1,9 @@
 {
-    "theme_color": "#141414",
-    "background_color": "#141414",
-    "display": "fullscreen",
-    "scope": "/",
-    "start_url": "/",
-    "name": "Calculator",
-    "short_name": "Calculator"
+  "theme_color": "#141414",
+  "background_color": "#141414",
+  "display": "fullscreen",
+  "scope": "/",
+  "start_url": "/",
+  "name": "Calculator",
+  "short_name": "Calculator"
 }
