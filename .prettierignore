@@ -1,0 +1,8 @@
+# Ignore artifacts:
+CODE_OF_CONDUCT.md
+Contributing.md
+LICENSE
+README.md
+SECURITY.md
+
+*.md
