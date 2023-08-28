@@ -57,6 +57,24 @@ function appendFunction(functionName) {
 }
 function appendDecimal(decimal) {
   // Prevent appending a decimal right after an operator
+   // Prevent appending a decimal right after an operator
+  // 2*.4 is valid(decimal is right after operator ) so I don't think we need to do so. Instead we should stop repeated decimal and prevent appending operator right after decimal
+ 
+  //algorithm below will counter the condition like "21.3.24.4" or "4....445" 0r 8*.3.2
+  
+  let presentOperators = "";
+  let numbersI = ['0','1','2','3','4','5','6','7','8','9']
+  for(let i=0;i<output.innerText.length;i++){
+    if(!numbersI.includes(output.innerText[i])){
+      presentOperators+=output.innerText[i];
+      
+    }
+
+  }
+ lastInputIsOperator = presentOperators[presentOperators.length-1]=="."
+
+ //to do remove the decimal when operator is added just after it to counter 2.*3 .
+ 
   if (!lastInputIsOperator) {
     // Reset lastInputIsOperator when a decimal is added
     lastInputIsOperator = false;
