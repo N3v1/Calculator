@@ -65,7 +65,14 @@ function appendDecimal(decimal) {
     document.querySelector('.resultCalc').innerHTML += decimal;
   }
 }
-
+function addClothingParenthesis(expression) {
+  const openParenCount = (expression.match(/\(/g) || []).length; // Check how many opening parentheses exist
+  const closeParenCount = (expression.match(/\)/g) || []).length; // Check how many closing parentheses exist
+  if (openParenCount > closeParenCount) {
+    expression += ')'.repeat(openParenCount - closeParenCount); // Add all the missing closing parentheses
+  }
+  return expression;
+}
 // Calculate and display the result of the expression
 function calculateResult() {
   // Get containers for previous expression and result display
@@ -75,12 +82,12 @@ function calculateResult() {
 
   // Get the expression from the result display
   let expression = resultContainer.innerHTML;
-
   //Insert the current expression into the previousExpressionContainer on display
   previousExpressionContainer.innerHTML = expression;
   expression = expression.replace('π', 'pi');
   // Replace the square root symbol with the Math.sqrt() method
   expression = expression.replace('√', 'sqrt');
+  expression=addClothingParenthesis(expression);
   console.log(expression);
   // Use the 'math.js' lib to first compile the expression and then evaluate it.
   let result = math.compile(expression).evaluate(); // Math.js - Compile(type 'string') then Evaluate() - returns number;
