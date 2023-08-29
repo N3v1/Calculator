@@ -4,6 +4,7 @@ Calculator in HTML,CSS and JS - (c) 2023 NH (N3v1) - Use at your own risk, no wa
 */
 
 let lastInputIsOperator = false; // Variable to track the last input
+let validPutOperator = false;
 // added a resize to fit font - ify47
 const output = document.querySelector('.resultCalc');
 const outputContainer = document.getElementById('result');
@@ -24,8 +25,12 @@ function appendTrigonometric(trigFunction) {
   const resultContainer = document.querySelector('.resultCalc');
   resultContainer.innerHTML += trigFunction + ' ' + '(';
   lastInputIsOperator = false;
+  validPutOperator = false;
 }
 function appendOperation(operation) {
+  if (!validPutOperator && operation === ' * ' ||
+    operation === ' / ' || operation === '%')
+    return;
   if (
     operation === ' . ' ||
     operation === ' + ' ||
@@ -45,36 +50,39 @@ function appendOperation(operation) {
     }
   } else {
     lastInputIsOperator = false;
+    validPutOperator=true;
     document.querySelector('.resultCalc').innerHTML += operation;
   }
   // adding it to each function - ify47
   resize_to_fit();
 }
 function appendFunction(functionName) {
+  if (functionName === '^' && !validPutOperator)
+    return;
   const resultContainer = document.querySelector('.resultCalc');
   resultContainer.innerHTML += functionName + '(';
   lastInputIsOperator = true;
 }
 function appendDecimal(decimal) {
   // Prevent appending a decimal right after an operator
-   // Prevent appending a decimal right after an operator
+  // Prevent appending a decimal right after an operator
   // 2*.4 is valid(decimal is right after operator ) so I don't think we need to do so. Instead we should stop repeated decimal and prevent appending operator right after decimal
- 
+
   //algorithm below will counter the condition like "21.3.24.4" or "4....445" 0r 8*.3.2
-  
+
   let presentOperators = "";
-  let numbersI = ['0','1','2','3','4','5','6','7','8','9']
-  for(let i=0;i<output.innerText.length;i++){
-    if(!numbersI.includes(output.innerText[i])){
-      presentOperators+=output.innerText[i];
-      
+  let numbersI = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+  for (let i = 0; i < output.innerText.length; i++) {
+    if (!numbersI.includes(output.innerText[i])) {
+      presentOperators += output.innerText[i];
+
     }
 
   }
- lastInputIsOperator = presentOperators[presentOperators.length-1]=="."
+  lastInputIsOperator = presentOperators[presentOperators.length - 1] == "."
 
- //to do remove the decimal when operator is added just after it to counter 2.*3 .
- 
+  //to do remove the decimal when operator is added just after it to counter 2.*3 .
+
   if (!lastInputIsOperator) {
     // Reset lastInputIsOperator when a decimal is added
     lastInputIsOperator = false;
@@ -105,7 +113,7 @@ function calculateResult() {
   expression = expression.replace('π', 'pi');
   // Replace the square root symbol with the Math.sqrt() method
   expression = expression.replace('√', 'sqrt');
-  expression=addClothingParenthesis(expression);
+  expression = addClothingParenthesis(expression);
   console.log(expression);
   // Use the 'math.js' lib to first compile the expression and then evaluate it.
   let result = math.compile(expression).evaluate(); // Math.js - Compile(type 'string') then Evaluate() - returns number;
@@ -132,6 +140,7 @@ function clearResult() {
   let container = document.querySelector('.resultCalc');
   container.innerHTML = container.innerHTML.slice(0, 0);
   output.style.fontSize = '30px'; //adding maximum font size for clearResult - ify47
+  validPutOperator=false;
 }
 
 // Add a keydown event listener to the document
