@@ -11,7 +11,7 @@ Welcome to the documentation for the Calculator Repository! This resource provid
 
 1. [Getting Started](https://github.com/N3v1/Calculator#getting-started)
 2. [User Interface Overview](https://github.com/N3v1/Calculator#user-interface-overview)
-3. [Known Errors/BUGs](https://github.com/N3v1/Calculator/blob/main/README.md#known-errorsbugs)
+3. [Known Errors/BUGs](https://github.com/N3v1/Calculator#known-errorsbugs)
 4. [Other] - [Contributing](https://github.com/N3v1/Calculator#contributing) - [License](https://github.com/N3v1/Calculator#license) - [Note of Thanks](https://github.com/N3v1/Calculator#note-of-thanks)
 
 <!-- Getting Started Section -->
