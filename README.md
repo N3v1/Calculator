@@ -1,52 +1,54 @@
 # Calculator
 
-<!--<div id="header" align="center">
-    <img src="https://media.giphy.com/media/M9gbBd9nbDrOTu1Mqx/giphy.gif" width="100"/>
-</div>-->
+<!-- Quick intro about project -->
 
-<img align="right"  width="100" src="https://media.giphy.com/media/M9gbBd9nbDrOTu1Mqx/giphy.gif"></a>
-Welcome to the documentation for the Calculator Repository! This website provides a user-friendly calculator that allows users to perform basic arithmetic operations. The calculator is built using HTML, CSS, and JavaScript, making it easy to use and accessible to anyone with a modern web browser.
+<img align="right"  width="100" src="https://media.giphy.com/media/4Wr6YXcHWrQMyeZq4J/giphy.gif">
+Welcome to the documentation for the Calculator Repository! This resource provides insight into our user-friendly calculator, offering basic arithmetic operations with ease and precision. Built on the basic HTML, CSS, and JavaScript, it ensures accessibility for all modern web browsers.
 
-## Table of Content
+<!-- Table of Content Section -->
 
-<!-- Table of Content start -->
+## Table of Contents
 
-1. [How to use this calculator](https://github.com/N3v1/Calculator#how-to-use-this-calculator)
-2. [Overview of the user interface](https://github.com/N3v1/Calculator#overview-of-the-user-interface)
-   - [Simple but useful functions](https://github.com/N3v1/Calculator#simple-but-useful-functions)
-3. [Known Errors/BUGs]()
-4. [Other](https://github.com/N3v1/Calculator#other) - [Contributing](https://github.com/N3v1/Calculator#contributing) - [License](https://github.com/N3v1/Calculator#license) - [Note of Thanks](https://github.com/N3v1/Calculator#note-of-thanks)
-<!-- Tabel of Content end -->
+1. [Getting Started](https://github.com/N3v1/Calculator#getting-started)
+2. [User Interface Overview](https://github.com/N3v1/Calculator#user-interface-overview)
+3. [Known Errors/BUGs][https://github.com/N3v1/Calculator/blob/main/README.md#known-errorsbugs]
+4. [Other] - [Contributing](https://github.com/N3v1/Calculator#contributing) - [License](https://github.com/N3v1/Calculator#license) - [Note of Thanks](https://github.com/N3v1/Calculator#note-of-thanks)
 
-## How to use this calculator
+<!-- Getting Started Section -->
 
-1. **Clone this repository:** Open your terminal and use the `git clone` clone command. After that paste the URL from this repository. Make sure that git is installed on your computer. To check that git is installed use the `git --version` command. If git isn't installed on your computer use homebrew to install git `brew install git`.
-2. **Open the cloned repo** with Visual Studio Code. Make sure that you have the **Live Server (Five Server)** extension from Yannick installed.
-3. **Run the Code with Five Server**
+## Getting Started
 
-## Overview of the user interface
+- **For With internet**, just click [**here**](https://n3v1.github.io/Calculator/). You can bookmark the website for future use.
 
-### The design
+- **For without internet follow these steps,**
+ 1. **Clone this repository:** Open your terminal and type `git clone https://github.com/N3v1/Calculator.git`. 
+ Make sure git is installed on your computer. To check use the `git --version` command. If git isn't installed use homebrew to install git `brew install git`.
+ 2. **Open the index.html file:** Go to the folder where you cloned the repository, double-click on index.html. Again, it will load you onto the web browser with your local copy of the calculator which you can use without worrying about internet.
 
+<!-- UI overview section -->
+
+<img align="right"  width="100" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3YyZWMyN3B1YzdqbGUxYnNodjk5c3d4ZWgxbGg1YmV6MWt3dmYyNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/xwY1n9NDT3IXLZmkzq/giphy.gif">
+
+## User Interface Overview
+
+I really tried to emphasise the importance of simplicity while building this calculator. Making sure that the experience of the user is unhurdled. The calculator is both simple and tidy but comprises of most of the features the user might expect. It also gives a professional setting for the user with sophisticated functionalities like it works both with a keyboard and mouse.
 <img height=400px src="Interface.png">
 
-The design of this calculator is both contemporary and sophisticated, rendering it a visually appealing addition to any professional setting. Furthermore, it is equipped with a comprehensive range of essential features that are fundamental to conducting efficient calculations. With this calculator, one can trust that all necessary tools are available to complete tasks with accuracy and expediency.
+<!-- Functionalties section -->
 
-### Simple but useful functions
+## Useful Features and Functionalities
 
-The calculator provided offers a comprehensive range of basic and practical functions, enabling users to perform **essential arithmetic operations**, including **addition**, **subtraction**, **multiplication**, and **division**. Additionally, the calculator features advanced capabilities, such as **percentage calculations** and **brackets for more complex equations**. Furthermore, I’m continuously working towards incorporating **new features** to enhance the calculator's functionality.
+The calculator provides range of functionalities enabling users to perform **essential arithmetic operations**. Additionally, the calculator features advanced capabilities, such as **percentage calculations** and **brackets for more complex equations**. Furthermore, I am continuously working towards incorporating **new features** to enhance the calculator's functionality.
 
-<img align="right"  width="100" src="https://media.giphy.com/media/11kEuHSQAXXiGQ/giphy.gif"></a>
+<img align="right"  width="100" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdGYxYmF2anYybmVvMHQxMTlkNjNvZjZsdTA0bHppeHN0OXkzaG55MCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/knh6IuGKMB4ySsg47z/giphy.gif">
 
 ## Known Errors/BUGs
 
-none
-
-## Other
+Currently, there are no known errors or bugs in this calculator. However, if you encounter any issues, please report them in the issues panel.
 
 ### Contributing
 
-If you would like to contribute to this project, I welcome pull requests. Please ensure that your changes are well-documented and maintain clean, readable code. See [**`Contributing.md`**](Contributing.md).
+This project is open to any contributions, I welcome pull requests. But, Please ensure that your changes are well-documented and maintain clean, readable code. See [**`Contribution Guidelines`**](Contributing.md).
 
 ### License
 
@@ -54,8 +56,8 @@ This project is licensed under the MIT License - see the [`LICENSE`](LICENSE) fi
 
 ### Note of Thanks
 
-- Many thanks to **Phil94comp** for helping me fix bug **#1**. You can find a link to his profile [**here**](https://github.com/Phil94comp).
-- Many thanks to **anubhav1206** for redesigning the calculator **#4** and **#6**. You can find a lihk to his profile [**here**](https://github.com/anubhav1206)
-- Many thanks to **jiri132** for his extraordinary help with this project. You can find a link to his profile [**here**](https://github.com/jiri132)
-- Many things to **chavi362** for her extraordinary help with this project. You can find a link to his profile [**here**](https://github.com/chavi362)
-- Many thanks to everyone who contributed to this project
+- Many thanks to [**Phil94comp**](https://github.com/Phil94comp) for helping me fix bug **#1**.
+- Many thanks to [**anubhav1206**](https://github.com/anubhav1206) for redesigning the calculator **#4** and **#6**.
+- Many thanks to [**jiri132**](https://github.com/jiri132) for his extraordinary help with this project. 
+- Many things to [**chavi362**](https://github.com/chavi362) for her extraordinary help with this project.
+- Many thanks to everyone who contributed to this project and also to you who read till here.
