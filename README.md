@@ -32,6 +32,7 @@ Welcome to the documentation for the Calculator Repository! This resource provid
 ## User Interface Overview
 
 I really tried to emphasise the importance of simplicity while building this calculator. Making sure that the experience of the user is unhurdled. The calculator is both simple and tidy but comprises of most of the features the user might expect. It also gives a professional setting for the user with sophisticated functionalities like it works both with a keyboard and mouse.
+
 <img height=400px src="Interface.png">
 
 <!-- Functionalties section -->
