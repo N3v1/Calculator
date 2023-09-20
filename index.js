@@ -147,6 +147,14 @@ function clearResult() {
 document.addEventListener('keydown', (event) => {
   // Get the pressed key
   const key = event.key;
+  
+  // When presing on of the F keys (F1 through F12) log the key to the console
+  // And return from the function so that it won't get executed
+  if (/F[1-9.]/.test(key)) {
+    //console.log(key)
+    return;
+  }
+  
   if (key === '%') {
     appendOperation(' % ');
   } else if (key === 'e') {
