@@ -108,6 +108,15 @@ function calculateResult() {
 
   // Get the expression from the result display
   let expression = resultContainer.innerHTML;
+
+  // Thiss should fix the issue with the calculator throwing an error when the expression is empty - Jiri132
+  if (expression.split("").length === 0) {
+  // If you want you can disable this or make it in the form of an alert I will leave both options up to you 
+    //console.error("Empty expression! \n", "Please enter a valid expression."); 
+    //alert("Empty expression! \n Please enter a valid expression!");
+    return;
+  }
+
   //Insert the current expression into the previousExpressionContainer on display
   previousExpressionContainer.innerHTML = expression;
   expression = expression.replace('π', 'pi');
