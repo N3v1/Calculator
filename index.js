@@ -143,6 +143,8 @@ function clearResult() {
   validPutOperator=false;
 }
 
+let previous_key; // This would store the previouw key that was being pressed 
+
 // Add a keydown event listener to the document
 document.addEventListener('keydown', (event) => {
   // Get the pressed key
@@ -161,23 +163,17 @@ document.addEventListener('keydown', (event) => {
     appendOperation('e');
   } else if (key === '^') {
     appendFunction('^');
-  } else if (key === 's') {
+  } else if (previous_key === "s" && key === 'p') { // Changing these functions from using new eventlistener it would instantiate a new event listener what caused the duplication of the PI's and SQRT's  - Jiri132
     // Check if the next key pressed is "p"
-    document.addEventListener('keydown', (nextEvent) => {
-      if (nextEvent.key === 'p') {
-        appendFunction('&#8730;'); // Append "sprt" to the expression
-        nextEvent.preventDefault(); // Prevent the default behavior of the "p" key
-      }
-    });
-  } else if (key === 'p') {
+    appendFunction('&#8730;'); // Append "sprt" to the expression
+    event.preventDefault(); // Prevent the default behavior of the "p" key
+      
+  } else if (previous_key === "p" && key === "i") {
     //  Please note that this solution assumes that the calculator does not have any other functionality associated with the key combination "pi". If there are conflicting key combinations or additional requirements, further modifications may be neccessary
     // Check if the next key pressed is "i"
-    document.addEventListener('keydown', (nextEvent) => {
-      if (nextEvent.key === 'i') {
-        appendOperation('π'); // Append "pi" to the expression
-        nextEvent.preventDefault(); // Prevent the default behavior of the "i" key
-      }
-    });
+    appendOperation('π'); // Append "pi" to the expression
+    event.preventDefault(); // Prevent the default behavior of the "i" key
+      
   } else if (/[0-9.]/.test(key)) {
     appendOperation(key);
   } else if (/[+\-*/]/.test(key)) {
@@ -187,6 +183,8 @@ document.addEventListener('keydown', (event) => {
   } else if (key === 'Enter' || key === '=') {
     calculateResult();
   }
+
+  previous_key = key; // Store the pressed key in the variable
 });
 
 document.addEventListener('keydown', function (event) {
