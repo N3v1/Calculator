@@ -149,6 +149,14 @@ let previous_key; // This would store the previouw key that was being pressed
 document.addEventListener('keydown', (event) => {
   // Get the pressed key
   const key = event.key;
+  
+  // When presing on of the F keys (F1 through F12) log the key to the console -v1.1 - Jiri132
+  // And return from the function so that it won't get executed
+  if (/F[1-9.]/.test(key)) {
+    //console.log(/F[1-9.]/.test(key),key)
+    return;
+  }
+  
   if (key === '%') {
     appendOperation(' % ');
   } else if (key === 'e') {
