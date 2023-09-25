@@ -154,50 +154,142 @@ function clearResult() {
 
 let previous_key; // This would store the previouw key that was being pressed 
 
+
+/**
+ * This function checks if the key pressed matches the regex given.
+ * 
+ * @example 
+ * ```js
+ * RegexCheck(/[0-9.]/, key, key);
+ * RegexCheck(/[+\-*\/], key, ` ${key} `);
+ * RegexCheck(/F[1-9.]/, key); // This one doesnt have an appender that means it will do nothing when the regex matches	
+ * ```
+ * 
+ * @param {String} regex 
+ * @param {String} key
+ * @param {String} appender
+ * @param {Function} opperation 
+ * 
+ * @returns {Boolean}
+ */
+function RegexChecker(regex, key, appender,opperation) {
+  if (regex.test(key)) {
+    console.log(appender);
+    if (appender !== null) {
+      appendOperation(appender);
+    } else if (opperation !== null) {
+      opperation();
+    }
+
+    return true;
+  }
+  return false;
+}
+/**
+ * This function checks if the key pressed matches the second and first key given.
+ * 
+ * @param {String} previous
+ * @param {String} current 
+ * @param {String} key
+ * @param {String} appender
+ * 
+ * @returns {Boolean}
+ */
+function DoubleKeyChecker(previous, current, key,appender) {
+  if (previous === previous_key && current === key) {
+    console.log(previous === previous_key && current === key, previous, previous_key, current, key)
+
+    appendOperation(appender);
+    return true;
+  }
+  return false;
+}
+
 // Add a keydown event listener to the document
 document.addEventListener('keydown', (event) => {
+  // event.preventDefault(); // Prevent the default behavior of the key pressed
   // Get the pressed key
   const key = event.key;
   
   // When presing on of the F keys (F1 through F12) log the key to the console -v1.1 - Jiri132
   // And return from the function so that it won't get executed
-  if (/F[1-9.]/.test(key)) {
-    //console.log(/F[1-9.]/.test(key),key)
+  // Doing all the regex checks in one if statement that does early returns if it comes in- Jiri132
+  if (RegexChecker(/F[1-9.]/, key, null)
+    || RegexChecker(/[0-9.]/, key, key)
+    || RegexChecker(/[+\-*\/]/, key, ` ${key} `)
+    || RegexChecker(/Backspace|Delete/, key, null, deleteLast)
+    || RegexChecker(/Enter|=/, key, null, calculateResult)
+  ) {
     return;
   }
-  
-  if (key === '%') {
-    appendOperation(' % ');
-  } else if (key === 'e') {
-    appendOperation('e');
-  } else if (key === '^') {
-    appendFunction('^');
-  } else if (previous_key === "s" && key === 'p') { // Changing these functions from using new eventlistener it would instantiate a new event listener what caused the duplication of the PI's and SQRT's  - Jiri132
-    // Check if the next key pressed is "p"
-    appendFunction('&#8730;'); // Append "sprt" to the expression
-    event.preventDefault(); // Prevent the default behavior of the "p" key
-      
-  } else if (previous_key === "p" && key === "i") {
-    //  Please note that this solution assumes that the calculator does not have any other functionality associated with the key combination "pi". If there are conflicting key combinations or additional requirements, further modifications may be neccessary
-    // Check if the next key pressed is "i"
-    appendOperation('π'); // Append "pi" to the expression
-    event.preventDefault(); // Prevent the default behavior of the "i" key
-      
-  } else if (/[0-9.]/.test(key)) {
-    appendOperation(key);
-  } else if (/[+\-*/]/.test(key)) {
-    appendOperation(` ${key} `);
-  } else if (key === 'Backspace' || key === 'Delete') {
-    deleteLast();
-  } else if (key === 'Enter' || key === '=') {
-    calculateResult();
+
+  // Doing all the double key checks in one if statement that does early returns if it comes in- Jiri132
+  if (DoubleKeyChecker('p','i',key,'π') 
+    || DoubleKeyChecker('s','q',key,'&#8730;(') 
+  ) {
+      return;
   }
 
+
+  console.log(key);
+
+  // Switch statement to handle the different keys
+  switch (key) {
+    case '%':
+      appendOperation(' % ');
+      break;
+    case 'e':
+      appendOperation('e');
+      break;
+    case '^':
+      appendFunction('^');
+      break;
+    case "Dead":
+      appendFunction('^');
+      break;
+    case '(':
+      appendOperation('(');
+      break;
+    case ')':
+      appendOperation(')');
+      break;
+  }
   previous_key = key; // Store the pressed key in the variable
+
+  // if (key === '%') {
+  //   appendOperation(' % ');
+  // } else if (key === 'e') {
+  //   appendOperation('e');
+  // } else if (key === '^' || key === 'Dead') { // For some reason the console says Dead when you log shift + 6 
+  //   appendFunction('^');
+  // } else if (key === '(') {
+  //   appendOperation('(');
+  // }
+  // else if (previous_key === "s" && key === 'p') { // Changing these functions from using new eventlistener it would instantiate a new event listener what caused the duplication of the PI's and SQRT's  - Jiri132
+  //   // Check if the next key pressed is "p"
+  //   appendFunction('&#8730;'); // Append "sprt" to the expression
+  //   event.preventDefault(); // Prevent the default behavior of the "p" key
+      
+  // } else if (previous_key === "p" && key === "i") {
+  //   //  Please note that this solution assumes that the calculator does not have any other functionality associated with the key combination "pi". If there are conflicting key combinations or additional requirements, further modifications may be neccessary
+  //   // Check if the next key pressed is "i"
+  //   appendOperation('π'); // Append "pi" to the expression
+  //   event.preventDefault(); // Prevent the default behavior of the "i" key
+      
+  // } else if (/[0-9.]/.test(key)) {
+  //   appendOperation(key);
+  // } else if (/[+\-*/]/.test(key)) {
+  //   appendOperation(` ${key} `);
+  // } else if (key === 'Backspace' || key === 'Delete') {
+  //   deleteLast();
+  // } else if (key === 'Enter' || key === '=') {
+  //   calculateResult();
+  // }
+
 });
 
-document.addEventListener('keydown', function (event) {
-  if ((event.keyCode === 8 || event.keyCode === 46) && event.ctrlKey) {
-    clearResult();
-  }
-});
+// document.addEventListener('keydown', function (event) {
+//   if ((event.keyCode === 8 || event.keyCode === 46) && event.ctrlKey) {
+//     clearResult();
+//   }
+// });
