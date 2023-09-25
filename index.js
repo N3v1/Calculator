@@ -197,8 +197,6 @@ function RegexChecker(regex, key, appender,opperation) {
  */
 function DoubleKeyChecker(previous, current, key,appender) {
   if (previous === previous_key && current === key) {
-    console.log(previous === previous_key && current === key, previous, previous_key, current, key)
-
     appendOperation(appender);
     return true;
   }
@@ -230,9 +228,6 @@ document.addEventListener('keydown', (event) => {
       return;
   }
 
-
-  console.log(key);
-
   // Switch statement to handle the different keys
   switch (key) {
     case '%':
@@ -255,41 +250,10 @@ document.addEventListener('keydown', (event) => {
       break;
   }
   previous_key = key; // Store the pressed key in the variable
-
-  // if (key === '%') {
-  //   appendOperation(' % ');
-  // } else if (key === 'e') {
-  //   appendOperation('e');
-  // } else if (key === '^' || key === 'Dead') { // For some reason the console says Dead when you log shift + 6 
-  //   appendFunction('^');
-  // } else if (key === '(') {
-  //   appendOperation('(');
-  // }
-  // else if (previous_key === "s" && key === 'p') { // Changing these functions from using new eventlistener it would instantiate a new event listener what caused the duplication of the PI's and SQRT's  - Jiri132
-  //   // Check if the next key pressed is "p"
-  //   appendFunction('&#8730;'); // Append "sprt" to the expression
-  //   event.preventDefault(); // Prevent the default behavior of the "p" key
-      
-  // } else if (previous_key === "p" && key === "i") {
-  //   //  Please note that this solution assumes that the calculator does not have any other functionality associated with the key combination "pi". If there are conflicting key combinations or additional requirements, further modifications may be neccessary
-  //   // Check if the next key pressed is "i"
-  //   appendOperation('π'); // Append "pi" to the expression
-  //   event.preventDefault(); // Prevent the default behavior of the "i" key
-      
-  // } else if (/[0-9.]/.test(key)) {
-  //   appendOperation(key);
-  // } else if (/[+\-*/]/.test(key)) {
-  //   appendOperation(` ${key} `);
-  // } else if (key === 'Backspace' || key === 'Delete') {
-  //   deleteLast();
-  // } else if (key === 'Enter' || key === '=') {
-  //   calculateResult();
-  // }
-
 });
 
-// document.addEventListener('keydown', function (event) {
-//   if ((event.keyCode === 8 || event.keyCode === 46) && event.ctrlKey) {
-//     clearResult();
-//   }
-// });
+document.addEventListener('keydown', function (event) {
+  if ((event.keyCode === 8 || event.keyCode === 46) && event.ctrlKey) {
+    clearResult();
+  }
+});
