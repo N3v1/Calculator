@@ -28,8 +28,9 @@ function appendTrigonometric(trigFunction) {
   validPutOperator = false;
 }
 function appendOperation(operation) {
-  if (!validPutOperator && operation === ' * ' ||
-    operation === ' / ' || operation === '%')
+  // Fixed a bug when trying to do the / operator right after a number using the keydown event - Jiri132
+  if (!validPutOperator && (operation === ' * ' ||
+    operation === ' / ' || operation === '%'))
     return;
   if (
     operation === ' . ' ||
@@ -174,7 +175,6 @@ let previous_key; // This would store the previouw key that was being pressed
  */
 function RegexChecker(regex, key, appender,opperation) {
   if (regex.test(key)) {
-    console.log(appender);
     if (appender !== null) {
       appendOperation(appender);
     } else if (opperation !== null) {
@@ -209,12 +209,13 @@ document.addEventListener('keydown', (event) => {
   // Get the pressed key
   const key = event.key;
   
+
   // When presing on of the F keys (F1 through F12) log the key to the console -v1.1 - Jiri132
   // And return from the function so that it won't get executed
   // Doing all the regex checks in one if statement that does early returns if it comes in- Jiri132
-  if (RegexChecker(/F[1-9.]/, key, null)
+  if ( RegexChecker(/F[1-9.]/, key, null)
     || RegexChecker(/[0-9.]/, key, key)
-    || RegexChecker(/[+\-*\/]/, key, ` ${key} `)
+    || RegexChecker(/[+\-*/%]/, key, ` ${key} `)
     || RegexChecker(/Backspace|Delete/, key, null, deleteLast)
     || RegexChecker(/Enter|=/, key, null, calculateResult)
   ) {
@@ -222,17 +223,25 @@ document.addEventListener('keydown', (event) => {
   }
 
   // Doing all the double key checks in one if statement that does early returns if it comes in- Jiri132
-  if (DoubleKeyChecker('p','i',key,'π') 
+  // Added a whole lot of new double key combinations - Jiri132
+  if ( DoubleKeyChecker('p','i',key,'π') 
     || DoubleKeyChecker('s','q',key,'&#8730;(') 
+    || DoubleKeyChecker('c','o', key, 'cos(')
+    || DoubleKeyChecker('s','i', key, 'sin(')
+    || DoubleKeyChecker('t','a', key, 'tan(')
+    || DoubleKeyChecker('l','o', key, 'log(')
+    || DoubleKeyChecker('a','b', key, 'abs(')
+    || DoubleKeyChecker('a','s', key, 'asin(')
+    || DoubleKeyChecker('a','c', key, 'acos(')
+    || DoubleKeyChecker('a','t', key, 'atan(')
   ) {
       return;
   }
 
+  
+
   // Switch statement to handle the different keys
   switch (key) {
-    case '%':
-      appendOperation(' % ');
-      break;
     case 'e':
       appendOperation('e');
       break;
