@@ -1,3 +1,6 @@
+> [!Warning]
+> ***(02/04/2024)*** This repo will be unmaintained soon[°](https://github.com/N3v1/Calculator#note). You'll still be able to use the calculator
+
 # Calculator
 
 <!-- Quick intro about project -->
@@ -62,3 +65,7 @@ This project is licensed under the MIT License - see the [`LICENSE`](LICENSE) fi
 - Many thanks to [**jiri132**](https://github.com/jiri132) for his extraordinary help with this project. 
 - Many things to [**chavi362**](https://github.com/chavi362) for her extraordinary help with this project.
 - Many thanks to everyone who contributed to this project and also to you who read till here.
+
+---
+### Note
+°The repo won't recieve any new features and bug-fixes
